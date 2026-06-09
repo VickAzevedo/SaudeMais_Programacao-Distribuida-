@@ -45,6 +45,7 @@ const Usuario = mongoose.model("Usuario", usuarioSchema);
 const Consulta = mongoose.model("Consulta", consultaSchema);
 const Saude = mongoose.model("Saude", saudeSchema);
 
+<<<<<<< HEAD
 app.post("/cadastro", async (req, res) => {
   const usuario = await Usuario.create(req.body);
   res.json(usuario);
@@ -95,8 +96,101 @@ app.get("/saude", async (req, res) => {
 app.delete("/saude/:id", async (req, res) => {
   await Saude.findByIdAndDelete(req.params.id);
   res.json({ mensagem: "Registro removido" });
+=======
+app.get("/", (req, res) => {
+  res.json({ status: "API Saude+ rodando" });
+});
+
+app.post("/cadastro", async (req, res) => {
+  try {
+    const usuario = await Usuario.create(req.body);
+    res.json(usuario);
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao cadastrar usuario" });
+  }
+});
+
+app.get("/cadastro", async (req, res) => {
+  try {
+    const usuarios = await Usuario.find();
+    res.json(usuarios);
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao buscar usuarios" });
+  }
+});
+
+app.post("/login", async (req, res) => {
+  try {
+    const { nome, senha } = req.body;
+    const usuario = await Usuario.findOne({ nome, senha });
+    if (!usuario) {
+      return res.status(401).json({ mensagem: "Usuario ou senha incorretos" });
+    }
+    res.json({ mensagem: "Login realizado", usuario });
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao fazer login" });
+  }
+});
+
+app.post("/consultas", async (req, res) => {
+  try {
+    const consulta = await Consulta.create(req.body);
+    res.json(consulta);
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao cadastrar consulta" });
+  }
+});
+
+app.get("/consultas", async (req, res) => {
+  try {
+    const consultas = await Consulta.find();
+    res.json(consultas);
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao buscar consultas" });
+  }
+});
+
+app.delete("/consultas/:id", async (req, res) => {
+  try {
+    await Consulta.findByIdAndDelete(req.params.id);
+    res.json({ mensagem: "Consulta removida" });
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao remover consulta" });
+  }
+});
+
+app.post("/saude", async (req, res) => {
+  try {
+    const dados = await Saude.create(req.body);
+    res.json(dados);
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao salvar dados de saude" });
+  }
+});
+
+app.get("/saude", async (req, res) => {
+  try {
+    const dados = await Saude.find();
+    res.json(dados);
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao buscar dados de saude" });
+  }
+});
+
+app.delete("/saude/:id", async (req, res) => {
+  try {
+    await Saude.findByIdAndDelete(req.params.id);
+    res.json({ mensagem: "Registro removido" });
+  } catch (err) {
+    res.status(500).json({ mensagem: "Erro ao remover registro" });
+  }
+>>>>>>> 156c82f4ad2d0fb6770165d0fc4b83be0c564767
 });
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Servidor rodando");
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 156c82f4ad2d0fb6770165d0fc4b83be0c564767

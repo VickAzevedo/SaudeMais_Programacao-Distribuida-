@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+}
+body{
+    font-family: "Cabin", sans-serif;
+    color: #212529;
+    background-color: #fff;
+    text-align: left;
+    margin: 0;
+    background-color: #c7edf8;
+}
+h4{
+    text-align: center;
+    background-color: #0d4870;
+    color: azure;
+    border-radius: 40px;  
+    padding: 15px;
+    font-size: 20px;
+}
+form{
+    padding: 150px;
+    margin: 10px;
+    border-radius: 20px;
+    color: rgb(54, 54, 54);
+    font-size: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+label{
+    margin: 15px;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+input[type="text"], input[type="date"], input[type="checkbox"],input[type="tel"],input[type="password"],input[type="email"],select, option {
+    width: 100%;
+    max-width: 300px; 
+    padding: 10px; 
+    margin: 15px auto;
+    display: block;
+    border: 1px solid #ccc; 
+    border-radius: 15px;
+    text-align: left; 
+    font-size: 16px;
+}
+fieldset{
+    border-radius: 15px;
+    border: rgb(255, 255, 255);
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+h1{
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    color: rgb(10, 0, 100);
+    text-align: center;
+}
+h5{
+    text-align: center;
+    background-color: #0d4870;
+    border-radius: 40px;
+    color: azure;
+    padding: 15px;
+    font-size: 20px;
+}
+button{
+    border-radius: 20px;
+    background-color: #0d4870;
+    color: azure;
+    padding: 10px 15px;
+    margin: 20px auto;
+    border: none;
+    display: block; 
+    border: none; 
+    cursor: pointer;  
+}
+button:hover {
+    transition: .4s;
+    transform: scale(1.10);
+}
+summary{
+    font-size: 20px;
+    color: #0d4870;
+    margin: 15px;
+}
+table{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 100px auto; 
+    padding: 20px;
+    font-size: large;
+    border-radius: 20px;
+    color: #0d4870;
+ 
+}
+th:hover, td:hover{
+    color: rgb(53, 137, 233);
+    background-color: #b7dbf3;
+    border: 1px solid blue;
+}
+
+th{
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+tr, td{
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+#rodape{
+    background-color: #1573b3;
+    color: beige;
+    height: 350px;
+    text-align: center;
+    padding: 20px 0;
+    
+}
+
+.email,.email li, .horario li {
+    list-style: none;
+    text-align:center;
+    padding: 10px;
+
+}
+
+.footer-topico, .horario{
+    background-color: #1573b3;
+    text-decoration: none;
+    text-align:center;
+    padding: 10px;
+}
+footer{
+    background-color: #023e56ec;
+}
+.footer, .footer li{
+    background-color: #023e56ec;
+    color: beige;
+    height: 100px;
+    text-align:left;
+    list-style: none;
+    padding: 13px;
+}
+small{
+    font-size: small;
+
+}

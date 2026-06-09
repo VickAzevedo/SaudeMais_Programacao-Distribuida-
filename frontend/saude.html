@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 156c82f4ad2d0fb6770165d0fc4b83be0c564767
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Saúde Preventiva | Saúde+</title>
     <link rel="stylesheet" href="./CSS/formularios.css">
     <link rel="icon" href="./img/fotor-20241020112638.ico">
@@ -192,3 +197,154 @@
     <script src="./JS/saude.js"></script>
 </body>
 </html>
+=======
+    <link rel="stylesheet" href="./CSS/saude.css">
+    <link rel="icon" href="./img/fotor-20241020112638.ico">
+    <title> Login | Saúde + </title>
+</head>
+<body>
+    <header>
+        <nav id="menu">
+            <a href="./site.html"> INÍCIO </a>
+            <a href="./consulta.html"> CONSULTAS </a> 
+            <a href="./saude.html"> SAÚDE PREVENTIVA</a> 
+        </nav>
+    </header>
+
+    <h1>Formulário de Saúde Preventiva</h1>
+
+    <section id="formulario">
+        <form id="cadastroForm">
+            <fieldset>
+                <h5> Saúde Preventiva </h5>
+                <label for="nomeCompleto">Nome Completo:</label>
+                <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Insira seu nome" required> <br>
+
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" placeholder="Insira sua idade" min="1" required> <br> 
+
+                <label for="exercicioRegular">Faz exercícios regularmente?</label>
+                <select id="exercicioRegular" name="exercicioRegular" required>
+                    <option value="">Selecione</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select> <br>
+
+                <label for="dietaEquilibrada">Segue uma dieta equilibrada?</label>
+                <select id="dietaEquilibrada" name="dietaEquilibrada" required>
+                    <option value="">Selecione</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select> <br>
+
+                <label for="checkupsRegulares">Realiza check-ups médicos regulares?</label>
+                <select id="checkupsRegulares" name="checkupsRegulares" required>
+                    <option value="">Selecione</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+
+                    </select> <br>
+
+
+            <label for="vacinas">Está com as vacinas em dia?</label>
+            <select id="vacinas" name="vacinas" required> <br>
+                <option value="">Selecione</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select> <br>
+
+            <label for="saudeMental">Como você descreveria sua saúde mental atualmente?</label><br>
+            <textarea id="saudeMental" name="saudeMental" rows="4" placeholder="Descreva sua saúde mental..."
+                required></textarea><br>
+
+            <label for="higiene">Cuida da higiene pessoal e ambiental adequadamente?</label>
+            <select id="higiene" name="higiene" required> <br>
+                <option value="">Selecione</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select> 
+             <br>
+           <button type="submit"> Enviar </button>
+</fieldset>
+</form>
+</section>
+<section id="tabela">
+    <details>
+        <summary><h5>Dados Armazenados</h5></summary> 
+        <table id="dadosTable">
+            <thead> 
+                <tr>
+                    <th colspan="8">Dados dos Usuários Cadastrados</th>
+                </tr>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Exercício</th>
+                    <th>Dieta</th>
+                    <th>Check-up</th>
+                    <th>Vacinas</th>
+                    <th>Saúde Mental</th>
+                    <th>Higiene</th>
+                </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+        </table>
+    </details>
+</section>
+
+</main>
+    <section>
+        <div id="Beneficios">
+            <div class="beneficio-item">
+                <h5>Alimentação Saudável</h5>
+                <p>Manter uma dieta balanceada é fundamental para o bom funcionamento do corpo e prevenção de doenças.</p>
+            </div>
+            <div class="beneficio-item">
+                <h5>Exercício Físico Regular</h5>
+                <p>Exercícios regulares melhoram a saúde cardiovascular e a qualidade de vida.</p>
+            </div>
+            <div class="beneficio-item">
+                <h5>Check-ups Regulares</h5>
+                <p>Visitas periódicas ao médico ajudam na detecção precoce de problemas de saúde.</p>
+            </div>
+            <div class="beneficio-item">
+                <h5>Vacinação</h5>
+                <p>Vacinas são essenciais para prevenir doenças e proteger a saúde pública.</p>
+            </div>
+            <div class="beneficio-item">
+                <h5>Saúde Mental</h5>
+                <p>Cuidar da saúde mental é tão importante quanto cuidar da saúde física.</p>
+            </div>
+            <div class="beneficio-item">
+                <h5>Higiene Pessoal e Ambiental</h5>
+                <p>Manter bons hábitos de higiene ajuda na prevenção de doenças e melhora o bem-estar geral.</p>
+            </div>
+        </div>
+        
+    </section>
+
+        <section id="rodape">
+            <ul class="email">
+                <li> <h5> E-mail </h5></li>
+                <li> ✉️ atendimento@saudemais.coop.br </li>
+            </ul>
+                <ul class="horario">
+                <li> <h5>Horário de Atendimento </h5></li>
+                <li>🕗 Segunda a sexta: 8h às 17h </li>
+    
+                <li>🕗 Sábado: 9h às 17h </li>
+                <li> Sempre com o numero da carteirinha em mãos!</li>
+                </ul>
+        </section>
+         <footer> 
+            <ul class="footer">
+                <li><small>&copy;Saúde Mais. Todos os Direitos reservados &copy;2024</small></li>
+            </ul>
+         </footer>
+        <script src="./JS/saude.js"> </script>
+        
+    </body>
+    </html>
+>>>>>>> 156c82f4ad2d0fb6770165d0fc4b83be0c564767
