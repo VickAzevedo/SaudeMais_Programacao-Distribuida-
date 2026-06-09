@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <link rel="icon" href="./img/fotor-20241020112638.ico">
+    <title> Login | Saúde + </title>
+</head>
+<body>
+    <main>     
+        <section id="formulario">
+            <form id="formInformacao">
+                <fieldset>
+                    <h5> Faça seu cadastro </h5>
+                    <label for="nome">Nome Completo: </label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome Completo" autofocus required> <br>
+
+                    <label for="data">Digite a sua data de nascimento: </label>
+                    <input type="date" id="data" name="data" placeholder="Data de nascimento" required> <br>
+
+                    <label for="CPF">CPF do titular do plano: </label>
+                    <input type="text" id="CPF" name="CPF" placeholder="CPF do titular" required> <br>
+
+                    <label for="email">Digite o seu e-mail: </label> 
+                    <input type="email" id="email" name="email" placeholder="E-mail para contato" required> <br>
+
+                    <label for="number">Digite o seu número de telefone: </label>
+                    <input type="tel" id="number" name="number" placeholder="Número de telefone" required> <br>
+
+                    <label for="senha">Crie uma senha: </label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required> <br>
+
+                    <label for="noticias">Deseja notificações sobre atualizações ou novidades? </label>
+                    <input type="checkbox" id="noticias" name="noticias" value="noticias"> <br>
+
+                    <label for="canal">Qual canal deseja receber as notificações?</label>
+                    <select name="canal" id="canal">
+                        <option value="email">E-mail</option>
+                        <option value="number">WhatsApp</option>
+                        <option value="no">Não desejo receber notificações</option>
+                    </select> <br>
+
+                    <button type="submit" id="btnEnviar">Enviar</button>
+                </fieldset>
+            </form>
+        </section>
+        <section id="tabela">
+            <details>
+                <summary><h5>Dados Armazenados</h5></summary> 
+                <table id="dadosTable">
+                    <thead> 
+                        <tr>
+                            <th colspan="6">Dados dos Usuários cadastrados</th>
+                        </tr>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data de nascimento</th>
+                            <th>CPF</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </details>
+        </section>
+    </main>
+    
+    <footer> 
+        <div id="rodape"> 
+            <section>
+                <ul class="email">
+                    <li><h5>E-mail</h5></li>
+                    <li>✉️ atendimento@saudemais.coop.br </li>
+                </ul>
+                <ul class="horario">
+                    <li><h5>Horário de Atendimento</h5></li>
+                    <li>🕗 Segunda a sexta: 8h às 17h </li>
+                    <li>🕗 Sábado: 9h às 17h </li>
+                    <li> Sempre com o número da carteirinha em mãos!</li>
+                </ul>
+            </section>
+        </div>
+        <ul class="footer">
+            <li><small>&copy;Saúde Mais. Todos os Direitos reservados &copy;2024</small></li>
+        </ul>
+    </footer>   
+    <script src="./JS/cadastro.js" defer></script>
+</body>
+</html>

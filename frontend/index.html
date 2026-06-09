@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <link rel="icon" href="./img/fotor-20241020112638.ico">
+</head>
+
+<body>
+    <main>
+        <section id="formulario">
+            <form id="loginForm" onsubmit="login(event)">
+            <fieldset>
+                <h5> Realize o seu Login! </h5>
+                <label for="nome">Usuario</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome do Usuário" autofocus required>
+                <label for="senha"> Senha </label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required> <br>
+
+                <div>
+                    <p> Ainda não tem cadastro? <a href="cadastro.html">Cadastra-se aqui!</a></p>
+                </div>
+                <button type="submit" id="btnEnviar">Entrar</button>
+                </fieldset>
+            </form>
+        </section>
+    <script src="./JS/login.js"></script>
+</body>
+</html>

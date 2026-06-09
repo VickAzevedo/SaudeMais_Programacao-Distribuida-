@@ -1,0 +1,148 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+}  
+#menu{
+    background-color: #0d4870;
+    border-right: #0d4870;
+}
+#menu nav{
+    max-width: 800px;
+}
+#menu a{
+    display: inline-block;
+    color:azure;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 20px;
+    transition:0.6s;   
+}
+#menu a:hover{
+    background-color: rgb(27, 75, 104);
+    border-radius: 10px;
+    transform: scale(1.05);
+
+}
+body{
+    font-family: "Cabin", sans-serif;
+    background-color: #ffffff;
+    text-align: left;
+    margin: 0;
+    background-color: #c7edf8;
+}
+h1{
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    color: rgb(10, 0, 100);
+    text-align: center;
+} 
+h3{
+    background-color: #c7edf8;
+    color: #0d4870;;
+    padding: 25px;
+    margin: 15px;
+    font-size: 25px;
+    border-radius: 30px;
+}
+h4{
+    color: #0d4870;
+    font-size: 23px;
+    padding: 15px;
+    text-align: center;
+}
+
+h5{
+    text-align: center;
+    background-color: #0d4870;
+    border-radius: 40px;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    font-size: 20px;
+}
+body{
+    margin: 10;
+    background-color: #c7edf8;
+}
+main{
+    margin: 30px;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+    display: flex;
+}
+
+p,#beneficios {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    margin: 40px;
+    font-size: 20px;
+    color:#000000;
+}
+.item{
+    background-color: #c7edf8;
+    padding: 100px 100px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    flex-basis: calc(16.66% - 10px); 
+    flex-grow:1;
+    transition: flex-grow 2.0s;
+    border-radius: 40px;
+}
+.item:hover{
+    flex-grow:1.5;
+}
+form{
+    background-color: #000000ec;;
+    padding: 15px;
+    margin: 10px left;
+    border-radius: 20px;
+    color: azure;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 700px;}
+
+fieldset{
+    border-radius: 15px;
+    text-align: left;
+    border: 1px solid #fff;
+    padding: 10px;
+}
+#rodape{
+    background-color: #1573b3;
+    color: beige;
+    height: 350px;
+    text-align: center;
+    padding: 20px 0;
+    
+}
+
+.email,.email li, .horario li {
+    list-style: none;
+    text-align:center;
+    padding: 10px;
+
+}
+
+.footer-topico, .horario{
+    background-color: #1573b3;
+    text-decoration: none;
+    text-align:center;
+    padding: 10px;
+}
+footer{
+    background-color: #023e56ec;
+}
+.footer, .footer li{
+    background-color: #023e56ec;
+    color: beige;
+    height: 100px;
+    text-align:left;
+    list-style: none;
+    padding: 13px;
+}
+small{
+    font-size: small;
+}
