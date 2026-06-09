@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/consulta.css">
+    <link rel="icon" href="./img/fotor-20241020112638.ico">
+    <title> Agendamento da sua consulta </title>
+</head>
+<body>
+  <header>
+     <nav id="menu">
+       <a href="./site.html"> INÍCIO </a> 
+       <a href="./consulta.html"> CONSULTAS </a>
+       <a href="./saude.html"> SAÚDE PREVENTIVA </a>
+     </nav>
+        
+  </header>
+    <h1> Agendamento da sua consulta! <br> Preencha o formulario a seguir. </h1> 
+<main>
+  <section id="formulario">
+    <form id="formInformacao">
+ <fieldset>
+    <h4>Preencha seu agendamento</h4>
+      <label for="especialidade">Qual especialidade pretende se consultar:</label>
+      <input type="text" id="especialidade" name="especialidade" placeholder="Angiologista, Alergista. . ." required><br>
+      <label for="exame">Qual exame pretende realizar:</label>
+      <input type="text" id="exame" name="exame" placeholder="Digite aqui" required><br>
+      <label for="data">Data do agendamento:</label>
+      <input type="date" id="data" name="data" required><br>
+      <label for="horario">Horário do agendamento:</label>
+      <input type="time" id="horario" name="horario" value="00:00" required><br>
+      <label for="local">Local da consulta:</label>
+      <input type="text" id="local" name="local" placeholder="Digite aqui" required><br>
+      <label for="contato">Além dos cadastrados, informe mas algum meio de contato:</label>
+      <input type="text" id="contato" name="contato" placeholder="Digite aqui" required>
+      <button type="submit" onclick="enviarDados()"> Enviar </button>
+   </fieldset>
+    </form>
+  </section>
+
+<section id="tabela">
+             <details>
+              <summary> <h5>Dados Armazenados</h5></summary> 
+               <table id="dadosTable">
+                <thead> 
+                  <tr>
+                    <th colspan="6">Dados dos Usuários cadastrados</th>
+                   </tr>
+                  <tr>
+                    <th>Especialidade</th>
+                    <th>Exame</th>
+                    <th>Horário do agendamento</th>
+                    <th>Data do agendamento</th>
+                    <th >Local da consulta</th>
+                    <th>Ações</th>
+                  </tr>
+              </thead>
+               <tbody>
+               </tbody>
+            </table>
+            </details>
+    </section>
+    </main>
+
+    <section id="rodape">
+        <ul class="email">
+            <li> <h5> E-mail </h5></li>
+            <li> ✉️ atendimento@saudemais.coop.br </li>
+        </ul>
+            <ul class="horario">
+            <li> <h5>Horário de Atendimento </h5></li>
+            <li>🕗 Segunda a sexta: 8h às 17h </li>
+
+            <li>🕗 Sábado: 9h às 17h </li>
+            <li> Sempre com o numero da carteirinha em mãos!</li>
+            </ul>
+    </section>
+     <footer> 
+        <ul class="footer">
+            <li><small>&copy;Saúde Mais. Todos os Direitos reservados &copy;2024</small></li>
+        </ul>
+     </footer>
+    <script src="./JS/consulta.js"></script>
+    
+</body>
+</html>
