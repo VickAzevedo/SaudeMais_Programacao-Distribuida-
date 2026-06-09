@@ -1,155 +1,194 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/saude.css">
+    <title>Saúde Preventiva | Saúde+</title>
+    <link rel="stylesheet" href="./CSS/formularios.css">
     <link rel="icon" href="./img/fotor-20241020112638.ico">
-    <title> Login | Saúde + </title>
 </head>
+
 <body>
-    <header>
+
+    <header class="cabecalho">
         <nav id="menu">
-            <a href="./site.html"> INÍCIO </a>
-            <a href="./consulta.html"> CONSULTAS </a> 
-            <a href="./saude.html"> SAÚDE PREVENTIVA</a> 
+            <h2 class="logo">Saúde+</h2>
+
+            <div class="links-menu">
+                <a href="./site.html">Início</a>
+                <a href="./consulta.html">Consultas</a>
+                <a href="./saude.html">Saúde Preventiva</a>
+                <a href="./cadastro.html">Cadastro</a>
+            </div>
         </nav>
     </header>
 
-    <h1>Formulário de Saúde Preventiva</h1>
+    <section class="page-hero">
+        <div>
+            <span class="tag">Saúde preventiva</span>
 
-    <section id="formulario">
-        <form id="cadastroForm">
-            <fieldset>
-                <h5> Saúde Preventiva </h5>
-                <label for="nomeCompleto">Nome Completo:</label>
-                <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Insira seu nome" required> <br>
+            <h1>Pequenos cuidados evitam grandes problemas</h1>
 
-                <label for="idade">Idade:</label>
-                <input type="number" id="idade" name="idade" placeholder="Insira sua idade" min="1" required> <br> 
+            <p>
+                Responda algumas perguntas sobre seus hábitos, rotina e bem-estar.
+                Essas informações ajudam a acompanhar pontos importantes da sua saúde.
+            </p>
+        </div>
 
-                <label for="exercicioRegular">Faz exercícios regularmente?</label>
-                <select id="exercicioRegular" name="exercicioRegular" required>
-                    <option value="">Selecione</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select> <br>
+        <div class="hero-info-card">
+            <h3>Prevenção em foco</h3>
 
-                <label for="dietaEquilibrada">Segue uma dieta equilibrada?</label>
-                <select id="dietaEquilibrada" name="dietaEquilibrada" required>
-                    <option value="">Selecione</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                </select> <br>
-
-                <label for="checkupsRegulares">Realiza check-ups médicos regulares?</label>
-                <select id="checkupsRegulares" name="checkupsRegulares" required>
-                    <option value="">Selecione</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-
-                    </select> <br>
-
-
-            <label for="vacinas">Está com as vacinas em dia?</label>
-            <select id="vacinas" name="vacinas" required> <br>
-                <option value="">Selecione</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-            </select> <br>
-
-            <label for="saudeMental">Como você descreveria sua saúde mental atualmente?</label><br>
-            <textarea id="saudeMental" name="saudeMental" rows="4" placeholder="Descreva sua saúde mental..."
-                required></textarea><br>
-
-            <label for="higiene">Cuida da higiene pessoal e ambiental adequadamente?</label>
-            <select id="higiene" name="higiene" required> <br>
-                <option value="">Selecione</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-            </select> 
-             <br>
-           <button type="submit"> Enviar </button>
-</fieldset>
-</form>
-</section>
-<section id="tabela">
-    <details>
-        <summary><h5>Dados Armazenados</h5></summary> 
-        <table id="dadosTable">
-            <thead> 
-                <tr>
-                    <th colspan="8">Dados dos Usuários Cadastrados</th>
-                </tr>
-                <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Exercício</th>
-                    <th>Dieta</th>
-                    <th>Check-up</th>
-                    <th>Vacinas</th>
-                    <th>Saúde Mental</th>
-                    <th>Higiene</th>
-                </tr>
-            </thead>
-            <tbody>
-              
-            </tbody>
-        </table>
-    </details>
-</section>
-
-</main>
-    <section>
-        <div id="Beneficios">
-            <div class="beneficio-item">
-                <h5>Alimentação Saudável</h5>
-                <p>Manter uma dieta balanceada é fundamental para o bom funcionamento do corpo e prevenção de doenças.</p>
+            <div class="info-linha">
+                <strong>Hábitos saudáveis</strong>
+                Alimentação, exercícios e higiene.
             </div>
-            <div class="beneficio-item">
-                <h5>Exercício Físico Regular</h5>
-                <p>Exercícios regulares melhoram a saúde cardiovascular e a qualidade de vida.</p>
+
+            <div class="info-linha">
+                <strong>Check-ups</strong>
+                Acompanhamento médico regular.
             </div>
-            <div class="beneficio-item">
-                <h5>Check-ups Regulares</h5>
-                <p>Visitas periódicas ao médico ajudam na detecção precoce de problemas de saúde.</p>
-            </div>
-            <div class="beneficio-item">
-                <h5>Vacinação</h5>
-                <p>Vacinas são essenciais para prevenir doenças e proteger a saúde pública.</p>
-            </div>
-            <div class="beneficio-item">
-                <h5>Saúde Mental</h5>
-                <p>Cuidar da saúde mental é tão importante quanto cuidar da saúde física.</p>
-            </div>
-            <div class="beneficio-item">
-                <h5>Higiene Pessoal e Ambiental</h5>
-                <p>Manter bons hábitos de higiene ajuda na prevenção de doenças e melhora o bem-estar geral.</p>
+
+            <div class="info-linha">
+                <strong>Saúde mental</strong>
+                Cuidar da mente também é essencial.
             </div>
         </div>
-        
     </section>
 
-        <section id="rodape">
-            <ul class="email">
-                <li> <h5> E-mail </h5></li>
-                <li> ✉️ atendimento@saudemais.coop.br </li>
-            </ul>
-                <ul class="horario">
-                <li> <h5>Horário de Atendimento </h5></li>
-                <li>🕗 Segunda a sexta: 8h às 17h </li>
-    
-                <li>🕗 Sábado: 9h às 17h </li>
-                <li> Sempre com o numero da carteirinha em mãos!</li>
-                </ul>
+    <main class="container">
+        <section class="page-grid">
+
+            <div class="form-card">
+                <h2>Formulário preventivo</h2>
+
+                <p>
+                    Preencha as informações abaixo para registrar seu acompanhamento
+                    de saúde preventiva.
+                </p>
+
+                <form id="cadastroForm">
+                    <fieldset>
+                        <div class="form-grupo">
+                            <label for="nomeCompleto">Nome completo</label>
+                            <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Digite seu nome completo" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="idade">Idade</label>
+                            <input type="number" id="idade" name="idade" placeholder="Digite sua idade" min="1" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="exercicioRegular">Faz exercícios regularmente?</label>
+                            <select id="exercicioRegular" name="exercicioRegular" required>
+                                <option value="">Selecione</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="dietaEquilibrada">Segue uma dieta equilibrada?</label>
+                            <select id="dietaEquilibrada" name="dietaEquilibrada" required>
+                                <option value="">Selecione</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="checkupsRegulares">Realiza check-ups médicos regulares?</label>
+                            <select id="checkupsRegulares" name="checkupsRegulares" required>
+                                <option value="">Selecione</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="vacinas">Está com as vacinas em dia?</label>
+                            <select id="vacinas" name="vacinas" required>
+                                <option value="">Selecione</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="saudeMental">Como você descreveria sua saúde mental atualmente?</label>
+                            <textarea id="saudeMental" name="saudeMental" rows="4" placeholder="Descreva brevemente como você está se sentindo..." required></textarea>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="higiene">Cuida da higiene pessoal e ambiental adequadamente?</label>
+                            <select id="higiene" name="higiene" required>
+                                <option value="">Selecione</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-principal">Salvar informações</button>
+
+                        <div class="mensagem-suporte">
+                            O acompanhamento preventivo ajuda a identificar hábitos
+                            que merecem mais atenção no dia a dia.
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="table-card">
+                <details open>
+                    <summary>
+                        <h2>Registros preventivos</h2>
+                    </summary>
+
+                    <p>
+                        Veja abaixo os dados cadastrados sobre saúde preventiva.
+                    </p>
+
+                    <div class="table-wrapper">
+                        <table id="dadosTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Exercício</th>
+                                    <th>Dieta</th>
+                                    <th>Check-up</th>
+                                    <th>Vacinas</th>
+                                    <th>Saúde mental</th>
+                                    <th>Higiene</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </div>
+
         </section>
-         <footer> 
-            <ul class="footer">
-                <li><small>&copy;Saúde Mais. Todos os Direitos reservados &copy;2024</small></li>
-            </ul>
-         </footer>
-        <script src="./JS/saude.js"> </script>
-        
-    </body>
-    </html>
+    </main>
+
+    <footer class="rodape">
+        <div>
+            <h3>Saúde+</h3>
+            <p>O plano de saúde que cuida de você e da sua família.</p>
+        </div>
+
+        <div>
+            <h4>Contato</h4>
+            <p>✉️ atendimento@saudemais.coop.br</p>
+            <p>🕗 Segunda a sexta: 8h às 17h</p>
+        </div>
+
+        <small>&copy; 2024 Saúde+. Todos os direitos reservados.</small>
+    </footer>
+
+    <script src="./JS/saude.js"></script>
+</body>
+</html>

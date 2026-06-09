@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <title>Login | Saúde+</title>
+    <link rel="stylesheet" href="./CSS/formularios.css">
     <link rel="icon" href="./img/fotor-20241020112638.ico">
 </head>
 
 <body>
-    <main>
-        <section id="formulario">
-            <form id="loginForm" onsubmit="login(event)">
-            <fieldset>
-                <h5> Realize o seu Login! </h5>
-                <label for="nome">Usuario</label>
-                <input type="text" id="nome" name="nome" placeholder="Nome do Usuário" autofocus required>
-                <label for="senha"> Senha </label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required> <br>
 
-                <div>
-                    <p> Ainda não tem cadastro? <a href="cadastro.html">Cadastra-se aqui!</a></p>
-                </div>
-                <button type="submit" id="btnEnviar">Entrar</button>
+    <header class="cabecalho">
+        <nav id="menu">
+            <h2 class="logo">Saúde+</h2>
+
+            <div class="links-menu">
+                <a href="./site.html">Início</a>
+                <a href="./consulta.html">Consultas</a>
+                <a href="./saude.html">Saúde Preventiva</a>
+                <a href="./cadastro.html">Cadastro</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <section class="login-card">
+            <span class="tag">Área do paciente</span>
+
+            <h1>Bem-vindo de volta</h1>
+
+            <p>
+                Acesse sua conta para acompanhar seus dados, agendar consultas
+                e continuar cuidando da sua saúde.
+            </p>
+
+            <form id="loginForm" onsubmit="login(event)">
+                <fieldset>
+                    <div class="form-grupo">
+                        <label for="nome">Usuário</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu usuário" required>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+
+                    <button type="submit" class="btn-principal">Entrar</button>
+
+                    <p class="cadastro-link">
+                        Ainda não tem cadastro?
+                        <a href="./cadastro.html">Cadastre-se aqui</a>
+                    </p>
                 </fieldset>
             </form>
         </section>
+    </main>
+
     <script src="./JS/login.js"></script>
 </body>
 </html>

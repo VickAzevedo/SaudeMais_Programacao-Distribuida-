@@ -1,65 +1,127 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://SEU-BACKEND.onrender.com";
 
-document.getElementById("cadastroForm").addEventListener("submit", async function (e) {
+const formSaude = document.getElementById("cadastroForm");
+const tabela = document.querySelector("#dadosTable tbody");
+
+formSaude.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    const botao = formSaude.querySelector("button");
+
     const dadosSaude = {
-        nomeCompleto: document.getElementById("nomeCompleto").value,
+        nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
         idade: document.getElementById("idade").value,
         exercicioRegular: document.getElementById("exercicioRegular").value,
         dietaEquilibrada: document.getElementById("dietaEquilibrada").value,
         checkupsRegulares: document.getElementById("checkupsRegulares").value,
         vacinas: document.getElementById("vacinas").value,
-        saudeMental: document.getElementById("saudeMental").value,
+        saudeMental: document.getElementById("saudeMental").value.trim(),
         higiene: document.getElementById("higiene").value
     };
 
-    await fetch(`${API_URL}/saude`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(dadosSaude)
-    });
+    try {
+        botao.disabled = true;
+        botao.textContent = "Salvando...";
 
-    alert("Dados salvos!");
-    atualizarTabela();
+        const resposta = await fetch(`${API_URL}/saude`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dadosSaude)
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao salvar dados de saúde.");
+        }
+
+        alert("Dados salvos!");
+        formSaude.reset();
+        atualizarTabela();
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível salvar os dados.");
+    } finally {
+        botao.disabled = false;
+        botao.textContent = "Salvar informações";
+    }
 });
 
 async function atualizarTabela() {
-    const resposta = await fetch(`${API_URL}/saude`);
-    const dados = await resposta.json();
+    try {
+        const resposta = await fetch(`${API_URL}/saude`);
 
-    const tabela = document.querySelector("#dadosTable tbody");
-    tabela.innerHTML = "";
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar dados de saúde.");
+        }
 
-    dados.forEach((item) => {
-        const linha = document.createElement("tr");
+        const dados = await resposta.json();
 
-        linha.innerHTML = `
-            <td>${item.nomeCompleto}</td>
-            <td>${item.idade}</td>
-            <td>${item.exercicioRegular}</td>
-            <td>${item.dietaEquilibrada}</td>
-            <td>${item.checkupsRegulares}</td>
-            <td>${item.vacinas}</td>
-            <td>${item.saudeMental}</td>
-            <td>${item.higiene}</td>
-            <td>
-                <button onclick="removerSaude('${item._id}')">Excluir</button>
-            </td>
+        tabela.innerHTML = "";
+
+        dados.forEach((item) => {
+            const linha = document.createElement("tr");
+
+            criarCelula(linha, item.nomeCompleto);
+            criarCelula(linha, item.idade);
+            criarCelula(linha, item.exercicioRegular);
+            criarCelula(linha, item.dietaEquilibrada);
+            criarCelula(linha, item.checkupsRegulares);
+            criarCelula(linha, item.vacinas);
+            criarCelula(linha, item.saudeMental);
+            criarCelula(linha, item.higiene);
+
+            const colunaAcao = document.createElement("td");
+            const botaoExcluir = document.createElement("button");
+
+            botaoExcluir.textContent = "Excluir";
+            botaoExcluir.addEventListener("click", () => removerSaude(item._id));
+
+            colunaAcao.appendChild(botaoExcluir);
+            linha.appendChild(colunaAcao);
+
+            tabela.appendChild(linha);
+        });
+
+    } catch (erro) {
+        console.error(erro);
+        tabela.innerHTML = `
+            <tr>
+                <td colspan="9">Não foi possível carregar os registros.</td>
+            </tr>
         `;
-
-        tabela.appendChild(linha);
-    });
+    }
 }
 
 async function removerSaude(id) {
-    await fetch(`${API_URL}/saude/${id}`, {
-        method: "DELETE"
-    });
+    const confirmar = confirm("Deseja realmente excluir este registro?");
 
-    atualizarTabela();
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/saude/${id}`, {
+            method: "DELETE"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao excluir registro.");
+        }
+
+        atualizarTabela();
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível excluir o registro.");
+    }
 }
 
-window.onload = atualizarTabela;
+function criarCelula(linha, texto) {
+    const celula = document.createElement("td");
+    celula.textContent = texto || "-";
+    linha.appendChild(celula);
+}
+
+document.addEventListener("DOMContentLoaded", atualizarTabela);

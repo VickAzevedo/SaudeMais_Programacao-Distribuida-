@@ -1,67 +1,131 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://SEU-BACKEND.onrender.com";
 
-let especialidade = document.getElementById("especialidade");
-let exame = document.getElementById("exame");
-let data = document.getElementById("data");
-let horario = document.getElementById("horario");
-let localConsulta = document.getElementById("local");
-let contato = document.getElementById("contato");
+const formConsulta = document.getElementById("formInformacao");
+const tabela = document.querySelector("#dadosTable tbody");
 
-document.getElementById("formInformacao").addEventListener("submit", async function (e) {
+formConsulta.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    const botao = formConsulta.querySelector("button");
+
     const consulta = {
-        especialidade: especialidade.value,
-        exame: exame.value,
-        data: data.value,
-        horario: horario.value,
-        local: localConsulta.value,
-        contato: contato.value
+        especialidade: document.getElementById("especialidade").value.trim(),
+        exame: document.getElementById("exame").value.trim(),
+        data: document.getElementById("data").value,
+        horario: document.getElementById("horario").value,
+        local: document.getElementById("local").value.trim(),
+        contato: document.getElementById("contato").value.trim()
     };
 
-    await fetch(`${API_URL}/consultas`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(consulta)
-    });
+    try {
+        botao.disabled = true;
+        botao.textContent = "Agendando...";
 
-    alert("Consulta cadastrada!");
-    atualizarTabela();
+        const resposta = await fetch(`${API_URL}/consultas`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(consulta)
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao cadastrar consulta.");
+        }
+
+        alert("Consulta cadastrada!");
+        formConsulta.reset();
+        atualizarTabela();
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível cadastrar a consulta.");
+    } finally {
+        botao.disabled = false;
+        botao.textContent = "Agendar consulta";
+    }
 });
 
 async function atualizarTabela() {
-    const resposta = await fetch(`${API_URL}/consultas`);
-    const dados = await resposta.json();
+    try {
+        const resposta = await fetch(`${API_URL}/consultas`);
 
-    const tabela = document.querySelector("#dadosTable tbody");
-    tabela.innerHTML = "";
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar consultas.");
+        }
 
-    dados.forEach((consulta) => {
-        const linha = document.createElement("tr");
+        const dados = await resposta.json();
 
-        linha.innerHTML = `
-            <td>${consulta.especialidade}</td>
-            <td>${consulta.exame}</td>
-            <td>${consulta.horario}</td>
-            <td>${consulta.data}</td>
-            <td>${consulta.local}</td>
-            <td>
-                <button onclick="removerConsulta('${consulta._id}')">Excluir</button>
-            </td>
+        tabela.innerHTML = "";
+
+        dados.forEach((consulta) => {
+            const linha = document.createElement("tr");
+
+            criarCelula(linha, consulta.especialidade);
+            criarCelula(linha, consulta.exame);
+            criarCelula(linha, consulta.horario);
+            criarCelula(linha, formatarData(consulta.data));
+            criarCelula(linha, consulta.local);
+
+            const colunaAcao = document.createElement("td");
+            const botaoExcluir = document.createElement("button");
+
+            botaoExcluir.textContent = "Excluir";
+            botaoExcluir.addEventListener("click", () => removerConsulta(consulta._id));
+
+            colunaAcao.appendChild(botaoExcluir);
+            linha.appendChild(colunaAcao);
+
+            tabela.appendChild(linha);
+        });
+
+    } catch (erro) {
+        console.error(erro);
+        tabela.innerHTML = `
+            <tr>
+                <td colspan="6">Não foi possível carregar as consultas.</td>
+            </tr>
         `;
-
-        tabela.appendChild(linha);
-    });
+    }
 }
 
 async function removerConsulta(id) {
-    await fetch(`${API_URL}/consultas/${id}`, {
-        method: "DELETE"
-    });
+    const confirmar = confirm("Deseja realmente excluir esta consulta?");
 
-    atualizarTabela();
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/consultas/${id}`, {
+            method: "DELETE"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao remover consulta.");
+        }
+
+        atualizarTabela();
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível excluir a consulta.");
+    }
 }
 
-window.onload = atualizarTabela;
+function criarCelula(linha, texto) {
+    const celula = document.createElement("td");
+    celula.textContent = texto || "-";
+    linha.appendChild(celula);
+}
+
+function formatarData(data) {
+    if (!data) {
+        return "-";
+    }
+
+    const partes = data.split("-");
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+}
+
+document.addEventListener("DOMContentLoaded", atualizarTabela);

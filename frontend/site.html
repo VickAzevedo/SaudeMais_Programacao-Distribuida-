@@ -1,76 +1,263 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saude +</title>
+    <title>Saúde+ | Cuidado e Bem-estar</title>
     <link rel="stylesheet" href="./CSS/site.css">
     <link rel="icon" href="./img/fotor-20241020112638.ico">
 </head>
+
 <body>
-    <header>
+
+    <header class="cabecalho">
         <nav id="menu">
-            <a href="./site.html"> INÍCIO </a> 
-            <a href="./consulta.html"> CONSULTAS </a> 
-            <a href="./saude.html"> SAÚDE PREVENTIVA </a>
+            <h2 class="logo">Saúde+</h2>
+
+            <div class="links-menu">
+                <a href="./site.html">Início</a>
+                <a href="./consulta.html">Consultas</a>
+                <a href="./saude.html">Saúde Preventiva</a>
+                <a href="./cadastro.html">Cadastro</a>
+            </div>
         </nav>
     </header>
 
-    <h1 id="site"> Saúde + <br> O plano de saúde que cuida de você e da sua família ☺</h1>
-    <main>
-        <section>
-            <h3> Plano de Saúde + <br><br>
-                Trabalho Feito por: <br><em>Henrique Krainski Santana - 37060368 <br>
-                Carla Prislanny Morais- 39018547 <br>
-                Victória de Azevedo Pinheiro- 38598825</h3> <br></em>
+    <section class="hero">
+        <div class="hero-conteudo">
+            <span class="tag">Cuidado completo para você</span>
+
+            <h1>Saúde, prevenção e bem-estar em um só lugar</h1>
+
             <p>
-                O Plano de Saúde + foi desenvolvido para oferecer a você e sua família acesso a cuidados de saúde de qualidade, com um atendimento eficiente e personalizado. Com uma rede de parceiros credenciados e profissionais de saúde altamente qualificados, o plano abrange desde consultas preventivas até tratamentos especializados, garantindo que você receba o suporte necessário em todas as etapas da sua jornada de saúde.<br>
+                O Saúde+ foi criado para facilitar o acesso a cuidados médicos,
+                informações preventivas e agendamento de consultas, ajudando você
+                e sua família a manterem uma rotina mais saudável.
             </p>
-            <h4> Benefícios do Plano Saúde +</h4>
-            <div id="beneficios">
-            <div class="item">
-                <b>Atendimento Médico Completo:</b> Consultas com especialistas em diversas áreas, exames laboratoriais, e internações cobertas.
+
+            <div class="botoes-hero">
+                <a href="./consulta.html" class="btn-principal">Agendar consulta</a>
+                <a href="./saude.html" class="btn-secundario">Saúde preventiva</a>
             </div>
-            <div class="item">
-                <b>Saúde Preventiva:</b> Acompanhamento regular com foco na prevenção de doenças, oferecendo check-ups periódicos, vacinação, e orientação nutricional.
+        </div>
+
+        <div class="hero-card">
+            <h3>Cuidado em foco</h3>
+
+            <div class="status-linha">
+                <span>Consultas</span>
+                <strong>Agendamento fácil</strong>
             </div>
-            <div class="item">
-                <b>Telemedicina:</b> Atendimento remoto para facilitar o acesso a cuidados médicos, onde quer que você esteja.
+
+            <div class="status-linha">
+                <span>Prevenção</span>
+                <strong>Acompanhamento</strong>
             </div>
-            <div class="item">
-                <b>Cobertura Nacional:</b> Rede ampla de hospitais, clínicas e laboratórios em todo o país.
+
+            <div class="status-linha">
+                <span>Bem-estar</span>
+                <strong>Qualidade de vida</strong>
             </div>
-            <div class="item">
-                <b>Descontos em Medicamentos:</b> Parcerias com farmácias para proporcionar economia na compra de remédios prescritos.
-            </div>
-            <div class="item">
-                <b>Bem-estar e Qualidade de Vida:</b> Programas de acompanhamento para gerenciamento de doenças crônicas, além de incentivo a atividades físicas.
-            </div>
-            </div>
-            <h4> Primeiros resultados positivos</h4>
-            <p>Em testes clínicos iniciais, pacientes com anemia falciforme apresentaram uma recuperação significativa após o tratamento com CRISPR. Além disso, pessoas com uma forma rara de cegueira genética recuperaram parte da visão após receber a terapia.</p>
-            <h4>Nossa Missão</h4>
-            <p> No Saúde +, nossa missão é promover o bem-estar e a qualidade de vida de todos, oferecendo acesso a informações de saúde confiáveis, soluções inovadoras e atendimento humanizado. Acreditamos que o conhecimento é a chave para uma vida mais saudável, e nos comprometemos a ser a ponte entre você e as melhores práticas de saúde preventiva e tratamentos modernos. <br>Nosso objetivo é empoderar nossos usuários a fazerem escolhas conscientes sobre sua saúde e a de suas famílias, garantindo suporte em cada etapa dessa jornada. Trabalhamos para que o cuidado com a saúde seja acessível, eficiente e de alta qualidade, sempre focado em suas necessidades individuais.
-            </p>
-        </section>
-    </main>
-    <section id="rodape">
-        <ul class="email">
-            <li> <h5> E-mail </h5></li>
-            <li> ✉️ atendimento@saudemais.coop.br </li>
-        </ul>
-        <ul class="horario">
-            <li> <h5>Horário de Atendimento </h5></li>
-            <li>🕗 Segunda a sexta: 8h às 17h </li>
-            <li>🕗 Sábado: 9h às 17h </li>
-            <li> Sempre com o número da carteirinha em mãos!</li>
-        </ul>
+        </div>
     </section>
-    <footer> 
-        <ul class="footer">
-            <li><small>&copy;Saúde Mais. Todos os Direitos reservados &copy;2024</small></li>
-        </ul>
-     </footer>
-  </body>
-<html>
+
+    <main>
+
+        <section class="secao">
+            <div class="titulo-secao">
+                <span>Sobre o Saúde+</span>
+                <h2>Cuidar da saúde nunca foi tão simples</h2>
+                <p>
+                    Nosso objetivo é aproximar pacientes de cuidados essenciais,
+                    oferecendo recursos para marcação de consultas, acompanhamento
+                    preventivo e orientação sobre hábitos saudáveis.
+                </p>
+            </div>
+
+            <div class="arquitetura">
+                <div class="card-arquitetura">
+                    <div class="icone">🩺</div>
+                    <h3>Atendimento médico</h3>
+                    <p>
+                        Agende consultas com diferentes especialidades de forma simples
+                        e organizada.
+                    </p>
+                </div>
+
+                <div class="seta">→</div>
+
+                <div class="card-arquitetura">
+                    <div class="icone">💚</div>
+                    <h3>Saúde preventiva</h3>
+                    <p>
+                        Acompanhe hábitos importantes como exercícios, alimentação,
+                        vacinas e check-ups.
+                    </p>
+                </div>
+
+                <div class="seta">→</div>
+
+                <div class="card-arquitetura">
+                    <div class="icone">👨‍👩‍👧</div>
+                    <h3>Cuidado familiar</h3>
+                    <p>
+                        Uma plataforma pensada para cuidar de você e da sua família
+                        com mais praticidade.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao fundo-claro">
+            <div class="titulo-secao">
+                <span>Funcionalidades</span>
+                <h2>O que você encontra no Saúde+</h2>
+                <p>
+                    A plataforma reúne recursos importantes para facilitar sua rotina
+                    de cuidado com a saúde.
+                </p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Cadastro de pacientes</h3>
+                    <p>
+                        Registre seus dados pessoais, informações de contato e preferências
+                        de comunicação.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Agendamento de consultas</h3>
+                    <p>
+                        Escolha especialidade, exame, data, horário e local para realizar
+                        seu atendimento.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Saúde preventiva</h3>
+                    <p>
+                        Responda perguntas sobre seus hábitos e acompanhe pontos importantes
+                        para prevenção de doenças.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Organização dos dados</h3>
+                    <p>
+                        As informações ficam organizadas para facilitar o acompanhamento
+                        e melhorar o atendimento.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="titulo-secao">
+                <span>Benefícios</span>
+                <h2>Por que usar o Saúde+?</h2>
+            </div>
+
+            <div class="beneficios">
+                <div class="beneficio">
+                    <h3>Mais praticidade</h3>
+                    <p>
+                        Agende consultas e organize informações importantes sem complicação.
+                    </p>
+                </div>
+
+                <div class="beneficio">
+                    <h3>Prevenção de doenças</h3>
+                    <p>
+                        O acompanhamento preventivo ajuda a identificar hábitos que precisam
+                        de mais atenção.
+                    </p>
+                </div>
+
+                <div class="beneficio">
+                    <h3>Cuidado contínuo</h3>
+                    <p>
+                        O Saúde+ incentiva uma rotina de acompanhamento, prevenção e bem-estar.
+                    </p>
+                </div>
+
+                <div class="beneficio">
+                    <h3>Qualidade de vida</h3>
+                    <p>
+                        Pequenas ações no dia a dia ajudam a construir uma vida mais saudável.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao fundo-claro">
+            <div class="titulo-secao">
+                <span>Saúde preventiva</span>
+                <h2>Pequenos hábitos fazem grande diferença</h2>
+                <p>
+                    Manter uma rotina saudável envolve alimentação equilibrada, prática de
+                    exercícios, vacinação em dia, acompanhamento médico e cuidado com a saúde mental.
+                </p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Alimentação equilibrada</h3>
+                    <p>
+                        Uma boa alimentação fortalece o corpo e ajuda na prevenção de doenças.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Exercícios físicos</h3>
+                    <p>
+                        Movimentar o corpo melhora a disposição, a saúde cardiovascular
+                        e o bem-estar geral.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Check-ups regulares</h3>
+                    <p>
+                        Consultas periódicas ajudam na identificação precoce de possíveis problemas.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Saúde mental</h3>
+                    <p>
+                        Cuidar da mente também faz parte de uma vida mais saudável e equilibrada.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="chamada-final">
+            <h2>Comece hoje a cuidar melhor da sua saúde</h2>
+            <p>
+                Cadastre-se, agende sua consulta e acompanhe sua saúde preventiva pelo Saúde+.
+            </p>
+
+            <a href="./cadastro.html" class="btn-principal">Fazer cadastro</a>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div>
+            <h3>Saúde+</h3>
+            <p>O plano de saúde que cuida de você e da sua família.</p>
+        </div>
+
+        <div>
+            <h4>Contato</h4>
+            <p>✉️ atendimento@saudemais.coop.br</p>
+            <p>🕗 Segunda a sexta: 8h às 17h</p>
+        </div>
+
+        <small>&copy; 2024 Saúde+. Todos os direitos reservados.</small>
+    </footer>
+
+</body>
+</html>

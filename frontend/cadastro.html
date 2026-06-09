@@ -3,91 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/cadastro.css">
+    <title>Cadastro | Saúde+</title>
+    <link rel="stylesheet" href="./CSS/formularios.css">
     <link rel="icon" href="./img/fotor-20241020112638.ico">
-    <title> Login | Saúde + </title>
 </head>
+
 <body>
-    <main>     
-        <section id="formulario">
-            <form id="formInformacao">
-                <fieldset>
-                    <h5> Faça seu cadastro </h5>
-                    <label for="nome">Nome Completo: </label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome Completo" autofocus required> <br>
 
-                    <label for="data">Digite a sua data de nascimento: </label>
-                    <input type="date" id="data" name="data" placeholder="Data de nascimento" required> <br>
+    <header class="cabecalho">
+        <nav id="menu">
+            <h2 class="logo">Saúde+</h2>
 
-                    <label for="CPF">CPF do titular do plano: </label>
-                    <input type="text" id="CPF" name="CPF" placeholder="CPF do titular" required> <br>
+            <div class="links-menu">
+                <a href="./site.html">Início</a>
+                <a href="./consulta.html">Consultas</a>
+                <a href="./saude.html">Saúde Preventiva</a>
+                <a href="./index.html">Login</a>
+            </div>
+        </nav>
+    </header>
 
-                    <label for="email">Digite o seu e-mail: </label> 
-                    <input type="email" id="email" name="email" placeholder="E-mail para contato" required> <br>
+    <section class="page-hero">
+        <div>
+            <span class="tag">Cadastro do paciente</span>
 
-                    <label for="number">Digite o seu número de telefone: </label>
-                    <input type="tel" id="number" name="number" placeholder="Número de telefone" required> <br>
+            <h1>Comece sua jornada de cuidado com o Saúde+</h1>
 
-                    <label for="senha">Crie uma senha: </label>
-                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required> <br>
+            <p>
+                Preencha seus dados para criar seu cadastro e ter acesso aos recursos
+                de agendamento, acompanhamento preventivo e comunicação com o plano.
+            </p>
+        </div>
 
-                    <label for="noticias">Deseja notificações sobre atualizações ou novidades? </label>
-                    <input type="checkbox" id="noticias" name="noticias" value="noticias"> <br>
+        <div class="hero-info-card">
+            <h3>Por que se cadastrar?</h3>
 
-                    <label for="canal">Qual canal deseja receber as notificações?</label>
-                    <select name="canal" id="canal">
-                        <option value="email">E-mail</option>
-                        <option value="number">WhatsApp</option>
-                        <option value="no">Não desejo receber notificações</option>
-                    </select> <br>
+            <div class="info-linha">
+                <strong>Agilidade</strong>
+                Marque consultas com mais facilidade.
+            </div>
 
-                    <button type="submit" id="btnEnviar">Enviar</button>
-                </fieldset>
-            </form>
-        </section>
-        <section id="tabela">
-            <details>
-                <summary><h5>Dados Armazenados</h5></summary> 
-                <table id="dadosTable">
-                    <thead> 
-                        <tr>
-                            <th colspan="6">Dados dos Usuários cadastrados</th>
-                        </tr>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Data de nascimento</th>
-                            <th>CPF</th>
-                            <th>E-mail</th>
-                            <th>Telefone</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </details>
+            <div class="info-linha">
+                <strong>Organização</strong>
+                Mantenha seus dados sempre acessíveis.
+            </div>
+
+            <div class="info-linha">
+                <strong>Cuidado contínuo</strong>
+                Acompanhe sua saúde preventiva.
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="page-grid">
+
+            <div class="form-card">
+                <h2>Faça seu cadastro</h2>
+
+                <p>
+                    Informe seus dados corretamente para facilitar o atendimento
+                    e o contato da equipe Saúde+.
+                </p>
+
+                <form id="formInformacao">
+                    <fieldset>
+                        <div class="form-grupo">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                        </div>
+
+                        <div class="form-duplo">
+                            <div class="form-grupo">
+                                <label for="dataNascimento">Data de nascimento</label>
+                                <input type="date" id="dataNascimento" name="dataNascimento" required>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="cpf">CPF do titular</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+                        </div>
+
+                        <div class="checkbox-area">
+                            <input type="checkbox" id="noticias" name="noticias" value="noticias">
+                            <label for="noticias">Desejo receber novidades e lembretes de saúde</label>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="canal">Canal de notificação</label>
+                            <select name="canal" id="canal">
+                                <option value="email">E-mail</option>
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="no">Não desejo receber notificações</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" id="btnEnviar" class="btn-principal">Criar cadastro</button>
+
+                        <div class="mensagem-suporte">
+                            Seus dados ajudam a melhorar o acompanhamento e a comunicação
+                            com a equipe de atendimento.
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <aside class="content-card">
+                <h2>Cuidado desde o primeiro acesso</h2>
+
+                <p>
+                    Com o cadastro no Saúde+, você consegue centralizar informações
+                    importantes e facilitar sua rotina de cuidados.
+                </p>
+
+                <div class="cards-info">
+                    <div class="info-card">
+                        <h3>Dados pessoais</h3>
+                        <p>Informações básicas para identificação do paciente.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Contato rápido</h3>
+                        <p>Facilita o envio de lembretes e confirmações.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Acesso aos serviços</h3>
+                        <p>Permite usar agendamentos e saúde preventiva.</p>
+                    </div>
+                </div>
+            </aside>
+
         </section>
     </main>
-    
-    <footer> 
-        <div id="rodape"> 
-            <section>
-                <ul class="email">
-                    <li><h5>E-mail</h5></li>
-                    <li>✉️ atendimento@saudemais.coop.br </li>
-                </ul>
-                <ul class="horario">
-                    <li><h5>Horário de Atendimento</h5></li>
-                    <li>🕗 Segunda a sexta: 8h às 17h </li>
-                    <li>🕗 Sábado: 9h às 17h </li>
-                    <li> Sempre com o número da carteirinha em mãos!</li>
-                </ul>
-            </section>
+
+    <footer class="rodape">
+        <div>
+            <h3>Saúde+</h3>
+            <p>O plano de saúde que cuida de você e da sua família.</p>
         </div>
-        <ul class="footer">
-            <li><small>&copy;Saúde Mais. Todos os Direitos reservados &copy;2024</small></li>
-        </ul>
-    </footer>   
+
+        <div>
+            <h4>Contato</h4>
+            <p>✉️ atendimento@saudemais.coop.br</p>
+            <p>🕗 Segunda a sexta: 8h às 17h</p>
+        </div>
+
+        <small>&copy; 2024 Saúde+. Todos os direitos reservados.</small>
+    </footer>
+
     <script src="./JS/cadastro.js" defer></script>
 </body>
 </html>
