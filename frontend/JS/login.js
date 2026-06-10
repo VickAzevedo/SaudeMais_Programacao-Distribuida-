@@ -1,16 +1,12 @@
 const API_URL = "https://saudemais-programacao-distribuida.onrender.com";
 
+
 async function login(event) {
     event.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
     const senha = document.getElementById("senha").value;
     const botao = event.target.querySelector("button");
-
-    if (!nome || !senha) {
-        alert("Preencha usuário e senha.");
-        return;
-    }
 
     try {
         botao.disabled = true;
@@ -29,12 +25,21 @@ async function login(event) {
             return;
         }
 
-        const dados = await resposta.json().catch(() => null);
+        const dados = await resposta.json();
+
+        const usuario = {
+            id: dados.usuario.id || dados.usuario._id,
+            nome: dados.usuario.nome
+        };
 
         sessionStorage.setItem("sessionActive", "true");
-        localStorage.setItem("loggedUser", nome);
+        localStorage.setItem("usuarioLogado", JSON.stringify({
+            id: dados.usuario.id,
+            nome: dados.usuario.nome
+          }));
+        localStorage.setItem("loggedUser", usuario.nome);
 
-        if (dados && dados.token) {
+        if (dados.token) {
             sessionStorage.setItem("token", dados.token);
         }
 
@@ -43,7 +48,7 @@ async function login(event) {
 
     } catch (erro) {
         console.error(erro);
-        alert("Erro ao conectar com o servidor. Tente novamente.");
+        alert("Erro ao conectar com o servidor.");
     } finally {
         botao.disabled = false;
         botao.textContent = "Entrar";

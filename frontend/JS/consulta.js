@@ -6,9 +6,19 @@ const tabela = document.querySelector("#dadosTable tbody");
 formConsulta.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    const usuario = obterUsuarioLogado();
+
+    if (!usuario) {
+        alert("Você precisa estar logado para agendar uma consulta.");
+        window.location.href = "./index.html";
+        return;
+    }
+
     const botao = formConsulta.querySelector("button");
 
     const consulta = {
+        usuarioId: usuario.id,
+        usuarioNome: usuario.nome,
         especialidade: document.getElementById("especialidade").value.trim(),
         exame: document.getElementById("exame").value.trim(),
         data: document.getElementById("data").value,
@@ -47,8 +57,15 @@ formConsulta.addEventListener("submit", async function (e) {
 });
 
 async function atualizarTabela() {
+    const usuario = obterUsuarioLogado();
+
+    if (!usuario) {
+        esconderTabela();
+        return;
+    }
+
     try {
-        const resposta = await fetch(`${API_URL}/consultas`);
+        const resposta = await fetch(`${API_URL}/consultas/usuario/${usuario.id}`);
 
         if (!resposta.ok) {
             throw new Error("Erro ao buscar consultas.");
@@ -57,6 +74,15 @@ async function atualizarTabela() {
         const dados = await resposta.json();
 
         tabela.innerHTML = "";
+
+        if (dados.length === 0) {
+            tabela.innerHTML = `
+                <tr>
+                    <td colspan="6">Você ainda não possui consultas cadastradas.</td>
+                </tr>
+            `;
+            return;
+        }
 
         dados.forEach((consulta) => {
             const linha = document.createElement("tr");
@@ -81,15 +107,24 @@ async function atualizarTabela() {
 
     } catch (erro) {
         console.error(erro);
+
         tabela.innerHTML = `
             <tr>
-                <td colspan="6">Não foi possível carregar as consultas.</td>
+                <td colspan="6">Não foi possível carregar suas consultas.</td>
             </tr>
         `;
     }
 }
 
 async function removerConsulta(id) {
+    const usuario = obterUsuarioLogado();
+
+    if (!usuario) {
+        alert("Você precisa estar logado.");
+        window.location.href = "./index.html";
+        return;
+    }
+
     const confirmar = confirm("Deseja realmente excluir esta consulta?");
 
     if (!confirmar) {
@@ -97,7 +132,7 @@ async function removerConsulta(id) {
     }
 
     try {
-        const resposta = await fetch(`${API_URL}/consultas/${id}`, {
+        const resposta = await fetch(`${API_URL}/consultas/${id}/usuario/${usuario.id}`, {
             method: "DELETE"
         });
 
@@ -125,6 +160,11 @@ function formatarData(data) {
     }
 
     const partes = data.split("-");
+
+    if (partes.length !== 3) {
+        return data;
+    }
+
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 

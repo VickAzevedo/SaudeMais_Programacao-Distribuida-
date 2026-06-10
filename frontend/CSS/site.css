@@ -378,3 +378,39 @@ body {
         padding: 35px 20px;
     }
 }
+.usuario-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#nomeUsuario {
+    color: #0f766e;
+    font-weight: bold;
+    background: #ecfdf5;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+#btnSair {
+    border: none;
+    background: #ef4444;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnSair:hover {
+    background: #dc2626;
+}
+
+@media (max-width: 950px) {
+    .usuario-area {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

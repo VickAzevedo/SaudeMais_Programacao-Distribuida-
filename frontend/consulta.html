@@ -8,17 +8,21 @@
     <link rel="icon" href="./img/fotor-20241020112638.ico">
 </head>
 
-<body>
-
+<body data-protegida="true">
     <header class="cabecalho">
         <nav id="menu">
             <h2 class="logo">Saúde+</h2>
-
+    
             <div class="links-menu">
                 <a href="./site.html">Início</a>
                 <a href="./consulta.html">Consultas</a>
                 <a href="./saude.html">Saúde Preventiva</a>
                 <a href="./cadastro.html">Cadastro</a>
+            </div>
+    
+            <div class="usuario-area">
+                <span id="nomeUsuario"></span>
+                <button id="btnSair" onclick="sair()">Sair</button>
             </div>
         </nav>
     </header>
@@ -156,6 +160,10 @@
         <small>&copy; 2024 Saúde+. Todos os direitos reservados.</small>
     </footer>
 
+    <script src="./JS/config.js"></script>
+    <script src="./JS/auth.js"></script>
     <script src="./JS/consulta.js"></script>
+</body>
+</html>
 </body>
 </html>

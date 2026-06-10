@@ -6,9 +6,19 @@ const tabela = document.querySelector("#dadosTable tbody");
 formSaude.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    const usuario = obterUsuarioLogado();
+
+    if (!usuario) {
+        alert("Você precisa estar logado para registrar dados de saúde.");
+        window.location.href = "./index.html";
+        return;
+    }
+
     const botao = formSaude.querySelector("button");
 
     const dadosSaude = {
+        usuarioId: usuario.id,
+        usuarioNome: usuario.nome,
         nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
         idade: document.getElementById("idade").value,
         exercicioRegular: document.getElementById("exercicioRegular").value,
@@ -49,8 +59,15 @@ formSaude.addEventListener("submit", async function (e) {
 });
 
 async function atualizarTabela() {
+    const usuario = obterUsuarioLogado();
+
+    if (!usuario) {
+        esconderTabela();
+        return;
+    }
+
     try {
-        const resposta = await fetch(`${API_URL}/saude`);
+        const resposta = await fetch(`${API_URL}/saude/usuario/${usuario.id}`);
 
         if (!resposta.ok) {
             throw new Error("Erro ao buscar dados de saúde.");
@@ -59,6 +76,15 @@ async function atualizarTabela() {
         const dados = await resposta.json();
 
         tabela.innerHTML = "";
+
+        if (dados.length === 0) {
+            tabela.innerHTML = `
+                <tr>
+                    <td colspan="9">Você ainda não possui registros preventivos.</td>
+                </tr>
+            `;
+            return;
+        }
 
         dados.forEach((item) => {
             const linha = document.createElement("tr");
@@ -86,15 +112,24 @@ async function atualizarTabela() {
 
     } catch (erro) {
         console.error(erro);
+
         tabela.innerHTML = `
             <tr>
-                <td colspan="9">Não foi possível carregar os registros.</td>
+                <td colspan="9">Não foi possível carregar seus registros.</td>
             </tr>
         `;
     }
 }
 
 async function removerSaude(id) {
+    const usuario = obterUsuarioLogado();
+
+    if (!usuario) {
+        alert("Você precisa estar logado.");
+        window.location.href = "./index.html";
+        return;
+    }
+
     const confirmar = confirm("Deseja realmente excluir este registro?");
 
     if (!confirmar) {
@@ -102,7 +137,7 @@ async function removerSaude(id) {
     }
 
     try {
-        const resposta = await fetch(`${API_URL}/saude/${id}`, {
+        const resposta = await fetch(`${API_URL}/saude/${id}/usuario/${usuario.id}`, {
             method: "DELETE"
         });
 
