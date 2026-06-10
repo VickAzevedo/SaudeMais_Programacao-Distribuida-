@@ -1,6 +1,3 @@
-const API_URL = "https://saudemais-programacao-distribuida.onrender.com";
-
-
 async function login(event) {
     event.preventDefault();
 
@@ -32,11 +29,14 @@ async function login(event) {
             nome: dados.usuario.nome
         };
 
+        if (!usuario.id) {
+            alert("Erro: o servidor não retornou o ID do usuário.");
+            console.log("Resposta recebida do servidor:", dados);
+            return;
+        }
+
         sessionStorage.setItem("sessionActive", "true");
-        localStorage.setItem("usuarioLogado", JSON.stringify({
-            id: dados.usuario.id,
-            nome: dados.usuario.nome
-          }));
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
         localStorage.setItem("loggedUser", usuario.nome);
 
         if (dados.token) {
@@ -47,7 +47,7 @@ async function login(event) {
         window.location.href = "./site.html";
 
     } catch (erro) {
-        console.error(erro);
+        console.error("Erro no login:", erro);
         alert("Erro ao conectar com o servidor.");
     } finally {
         botao.disabled = false;
