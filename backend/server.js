@@ -45,58 +45,6 @@ const Usuario = mongoose.model("Usuario", usuarioSchema);
 const Consulta = mongoose.model("Consulta", consultaSchema);
 const Saude = mongoose.model("Saude", saudeSchema);
 
-<<<<<<< HEAD
-app.post("/cadastro", async (req, res) => {
-  const usuario = await Usuario.create(req.body);
-  res.json(usuario);
-});
-
-app.get("/cadastro", async (req, res) => {
-  const usuarios = await Usuario.find();
-  res.json(usuarios);
-});
-
-app.post("/login", async (req, res) => {
-  const { nome, senha } = req.body;
-
-  const usuario = await Usuario.findOne({ nome, senha });
-
-  if (!usuario) {
-    return res.status(401).json({ mensagem: "Usuário ou senha incorretos" });
-  }
-
-  res.json({ mensagem: "Login realizado", usuario });
-});
-
-app.post("/consultas", async (req, res) => {
-  const consulta = await Consulta.create(req.body);
-  res.json(consulta);
-});
-
-app.get("/consultas", async (req, res) => {
-  const consultas = await Consulta.find();
-  res.json(consultas);
-});
-
-app.delete("/consultas/:id", async (req, res) => {
-  await Consulta.findByIdAndDelete(req.params.id);
-  res.json({ mensagem: "Consulta removida" });
-});
-
-app.post("/saude", async (req, res) => {
-  const dados = await Saude.create(req.body);
-  res.json(dados);
-});
-
-app.get("/saude", async (req, res) => {
-  const dados = await Saude.find();
-  res.json(dados);
-});
-
-app.delete("/saude/:id", async (req, res) => {
-  await Saude.findByIdAndDelete(req.params.id);
-  res.json({ mensagem: "Registro removido" });
-=======
 app.get("/", (req, res) => {
   res.json({ status: "API Saude+ rodando" });
 });
@@ -184,13 +132,8 @@ app.delete("/saude/:id", async (req, res) => {
   } catch (err) {
     res.status(500).json({ mensagem: "Erro ao remover registro" });
   }
->>>>>>> 156c82f4ad2d0fb6770165d0fc4b83be0c564767
 });
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Servidor rodando");
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 156c82f4ad2d0fb6770165d0fc4b83be0c564767
