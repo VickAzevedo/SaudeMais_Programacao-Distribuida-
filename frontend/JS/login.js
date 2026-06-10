@@ -1,4 +1,4 @@
-const API_URL = "https://SEU-BACKEND.onrender.com";
+const API_URL = "https://saudemais-programacao-distribuida.onrender.com";
 
 async function login(event) {
     event.preventDefault();
