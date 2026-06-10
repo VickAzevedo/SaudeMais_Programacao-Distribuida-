@@ -1,1 +1,1 @@
-const API_URL = "https://saudemais-programacao-distribuida.onrender.com";
+window.API_URL = "https://saudemais-programacao-distribuida.onrender.com";

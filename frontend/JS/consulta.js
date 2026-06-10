@@ -1,4 +1,4 @@
-const API_URL = "https://saudemais-programacao-distribuida.onrender.com";
+const API_URL = window.API_URL;
 
 const formConsulta = document.getElementById("formInformacao");
 const tabela = document.querySelector("#dadosTable tbody");
@@ -8,7 +8,7 @@ formConsulta.addEventListener("submit", async function (e) {
 
     const usuario = obterUsuarioLogado();
 
-    if (!usuario) {
+    if (!usuario || !usuario.id) {
         alert("Você precisa estar logado para agendar uma consulta.");
         window.location.href = "./index.html";
         return;
@@ -39,17 +39,23 @@ formConsulta.addEventListener("submit", async function (e) {
             body: JSON.stringify(consulta)
         });
 
+        const retorno = await resposta.json();
+
         if (!resposta.ok) {
-            throw new Error("Erro ao cadastrar consulta.");
+            console.log("Erro retornado pela API:", retorno);
+            throw new Error(retorno.mensagem || "Erro ao cadastrar consulta.");
         }
 
         alert("Consulta cadastrada!");
         formConsulta.reset();
-        atualizarTabela();
+
+        if (tabela) {
+            atualizarTabela();
+        }
 
     } catch (erro) {
-        console.error(erro);
-        alert("Não foi possível cadastrar a consulta.");
+        console.error("Erro ao cadastrar consulta:", erro);
+        alert("Não foi possível cadastrar a consulta. Verifique o console.");
     } finally {
         botao.disabled = false;
         botao.textContent = "Agendar consulta";
@@ -59,19 +65,24 @@ formConsulta.addEventListener("submit", async function (e) {
 async function atualizarTabela() {
     const usuario = obterUsuarioLogado();
 
-    if (!usuario) {
+    if (!usuario || !usuario.id) {
         esconderTabela();
+        return;
+    }
+
+    if (!tabela) {
         return;
     }
 
     try {
         const resposta = await fetch(`${API_URL}/consultas/usuario/${usuario.id}`);
 
+        const dados = await resposta.json();
+
         if (!resposta.ok) {
+            console.log("Erro retornado pela API:", dados);
             throw new Error("Erro ao buscar consultas.");
         }
-
-        const dados = await resposta.json();
 
         tabela.innerHTML = "";
 
@@ -106,20 +117,22 @@ async function atualizarTabela() {
         });
 
     } catch (erro) {
-        console.error(erro);
+        console.error("Erro ao carregar consultas:", erro);
 
-        tabela.innerHTML = `
-            <tr>
-                <td colspan="6">Não foi possível carregar suas consultas.</td>
-            </tr>
-        `;
+        if (tabela) {
+            tabela.innerHTML = `
+                <tr>
+                    <td colspan="6">Não foi possível carregar suas consultas.</td>
+                </tr>
+            `;
+        }
     }
 }
 
 async function removerConsulta(id) {
     const usuario = obterUsuarioLogado();
 
-    if (!usuario) {
+    if (!usuario || !usuario.id) {
         alert("Você precisa estar logado.");
         window.location.href = "./index.html";
         return;
@@ -136,14 +149,17 @@ async function removerConsulta(id) {
             method: "DELETE"
         });
 
+        const retorno = await resposta.json();
+
         if (!resposta.ok) {
+            console.log("Erro retornado pela API:", retorno);
             throw new Error("Erro ao remover consulta.");
         }
 
         atualizarTabela();
 
     } catch (erro) {
-        console.error(erro);
+        console.error("Erro ao excluir consulta:", erro);
         alert("Não foi possível excluir a consulta.");
     }
 }
